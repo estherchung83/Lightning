@@ -1,9 +1,11 @@
 int c = 35;
-int startX = ((int)Math.random()) + 120;
-int startY = ((int)Math.random()) + 120;
+int startX =  50;
+int startY = 120;
+int endX = 60;
+int endY = 60;
 void setup()
 {
-  size(600,600);
+  size(400,400);
   background(#030F40);
 }
 void draw()
@@ -14,7 +16,7 @@ void draw()
 }
 void cloud()
 {
-  while (c<600)
+  while (c<400)
   {
      fill(#796E6E);
      noStroke();
@@ -31,9 +33,17 @@ void cloud()
 
 void lightning()
 {
+
   stroke(#FAEE03);
-  strokeWeight(8);
-  line(startX,startY,50,200);
+  strokeWeight(10);
+  while( startY < 600)
+  {
+  endX = startX + (int)(Math.random() * 50)-9;
+  endY = startY + (int)(Math.random() * 50) - 9;
+  line(startX,startY,endX,endY);
+  startX = endX;
+  startY = endY;
+  }
 }
 void mousePressed()
 {
