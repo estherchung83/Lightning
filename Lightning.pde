@@ -10,8 +10,10 @@ void setup()
 }
 void draw()
 {
+  rain();
   lightning();
   cloud();
+  
   
 }
 void cloud()
@@ -35,17 +37,27 @@ void lightning()
 {
 
   stroke(#FAEE03);
-  strokeWeight(10);
-  while( startY < 600)
+  strokeWeight(4);
+  while( startY < 400)
   {
-  endX = startX + (int)(Math.random() * 50)-9;
-  endY = startY + (int)(Math.random() * 50) - 9;
+  endX = startX + (int)(Math.random() * 15)-5;
+  endY = startY + (int)(Math.random() * 45) - 10;
   line(startX,startY,endX,endY);
   startX = endX;
   startY = endY;
   }
 }
+void rain()
+{
+ noStroke();
+ fill(#1394E8);
+ ellipse(300,300,16,16);
+ triangle(300,280,308,300,292,300);
+}
 void mousePressed()
 {
+  startX = startX + (int)(Math.random()*50) + 20;
+  startY = 120;
+  
   
 }
